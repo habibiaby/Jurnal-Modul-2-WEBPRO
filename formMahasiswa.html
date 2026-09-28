@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 3 - Form Data Mahasiswa</title>
+</head>
+<body>
+
+    <h2>Data Mahasiswa</h2>
+
+    <form id="formMahasiswa" onsubmit="return validasiHobi()">
+        <table border="0" cellpadding="5">
+            <tr>
+                <td><label for="nim">NIM :</label></td>
+                <td><input type="text" id="nim" name="nim" required></td>
+            </tr>
+            <tr>
+                <td><label for="nama">Nama :</label></td>
+                <td><input type="text" id="nama" name="nama" required></td>
+            </tr>
+            <tr>
+                <td><label for="tgl_lahir">Tgl Lahir (dd-mm-yyyy) :</label></td>
+                <td><input type="date" id="tgl_lahir" name="tgl_lahir" required></td>
+            </tr>
+            <tr>
+                <td><label>Jenis Kelamin :</label></td>
+                <td>
+                    <input type="radio" id="laki" name="jenis_kelamin" value="Laki-Laki" required>
+                    <label for="laki">Laki-Laki</label>
+                    <input type="radio" id="perempuan" name="jenis_kelamin" value="Perempuan" required>
+                    <label for="perempuan">Perempuan</label>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"><label for="alamat">Alamat di Bandung :</label></td>
+                <td><textarea id="alamat" name="alamat" rows="4" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="tinggal_di">Tinggal di :</label></td>
+                <td>
+                    <select id="tinggal_di" name="tinggal_di" required>
+                        <option value="">--pilih--</option>
+                        <option value="Kos/kontrakan">Kos/kontrakan</option>
+                        <option value="Rumah saudara">Rumah saudara</option>
+                        <option value="Rumah orang tua">Rumah orang tua</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"><label>Pilih 2 hobi yang paling disukai :</label></td>
+                <td>
+                    <input type="checkbox" id="science" name="hobi" value="Science">
+                    <label for="science">Science</label><br>
+                    <input type="checkbox" id="technology" name="hobi" value="Technology">
+                    <label for="technology">Technology</label><br>
+                    <input type="checkbox" id="art" name="hobi" value="Art">
+                    <label for="art">Art</label><br>
+                    <input type="checkbox" id="sport" name="hobi" value="Sport">
+                    <label for="sport">Sport</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function validasiHobi() {
+            const hobiCheckboxes = document.querySelectorAll('input[name="hobi"]:checked');
+            if (hobiCheckboxes.length !== 2) {
+                alert("Harap pilih tepat 2 hobi!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
